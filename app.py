@@ -60,4 +60,5 @@ def dankRain(rain):
         return 0
 
 if __name__ == '__main__':  # only run if this is being run as the main app
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    context = ('chained.pem', 'domain.key')
+    app.run(host='0.0.0.0', ssl_context=context, port=443)
