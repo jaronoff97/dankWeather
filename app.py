@@ -60,4 +60,4 @@ def dankRain(rain):
         return 0
 
 if __name__ == '__main__':  # only run if this is being run as the main app
-    app.run(port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
