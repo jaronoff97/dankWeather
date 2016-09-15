@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from math import log
 import requests
 import json
@@ -20,7 +20,8 @@ def home():
     wind = data["currently"]["windSpeed"]
     rain = data["currently"]["precipIntensity"]
 
-    return str(int(dankCalc(temp, humid, wind, rain))) + "%"
+    dank = str(int(dankCalc(temp, humid, wind, rain))) + "%"
+    return render_template('index.html', info_location=dank), 200
 
 
 def dankCalc(temp, humid, wind, rain):
