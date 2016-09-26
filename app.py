@@ -30,33 +30,33 @@ def dankCalc(temp, humid, wind, rain):
     wind = dankWind(wind)
     rain = dankRain(rain)
 
-    return (temp + humid + wind + rain) / 4
+    return (temp * humid * wind * rain) * 100
 
 
 def dankTemp(temp):
     if temp > 40 or temp <= 100:
-        return (100 - abs(70 - temp) ** 1.354)
+        return (100 - abs(70 - temp) ** 1.354)/100
     else:
         return 0
 
 
 def dankHumid(humid):
     if humid < .5:
-        return (100 - 100 * abs(.25 - humid) ** ((log(2, 10) + log(5, 10)) / log(5, 10)))
+        return (100 - 100 * abs(.25 - humid) ** ((log(2, 10) + log(5, 10)) / log(5, 10)))/100
     else:
         return 0
 
 
 def dankWind(wind):
     if wind < 26.5:
-        return (100 - abs(5 - wind) ** 1.5)
+        return (100 - abs(5 - wind) ** 1.5)/100
     else:
         return 0
 
 
 def dankRain(rain):
     if rain < .1:
-        return (100 - rain * 1000)
+        return (100 - rain * 1000)/100
     else:
         return 0
 
