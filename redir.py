@@ -7,6 +7,7 @@ import os
 app = Flask(__name__)
 @app.route('/')
 def home():
+    # redirect the user to a secure version of the site
     return redirect("https://dankweather.com", code=302)
 
 if __name__ == '__main__':
